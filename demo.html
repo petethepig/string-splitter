@@ -1,0 +1,30 @@
+<html>
+<head>
+  <title>String Splitter Demo</title>
+  <style>
+    p{
+      font: 400 15px/1.4 Consolas, "Liberation Mono", Courier, monospace
+    }
+  </style>
+  <script src="string-splitter.js"></script>
+</head>
+<body>
+  <h1>String Splitter Demo</h1>
+  <form>
+    May I have this string <input id="input-string" value="abcdefghef" /> split in <input id="input-parts" value="5" /> parts, <button>please</button>.
+  </form>
+  <div id="output">
+    
+  </div>
+  <script>
+    var splitter = new StringSplitter();
+    document.querySelector('form').addEventListener('submit', function(ev){
+      ev.preventDefault();
+      var text = splitter(document.querySelector('#input-string').value, document.querySelector('#input-parts').value);
+      var el = document.createElement('p');
+      el.textContent = text;
+      document.querySelector('#output').appendChild(el);
+    })
+  </script>
+</body>
+</html>
